@@ -1,0 +1,23 @@
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="bean.EmployeeMain" table="EmployeeMain">
+        <id name="empId" />
+        <property name="empName"/>
+        <property name="empEmail"/>
+        <joined-subclass name="bean.SoftwareEmp" table="SoftwareEmp">
+            <key column="empId"/>
+            <property name="tool"/>
+        </joined-subclass >
+        <joined-subclass name="bean.HardwareEmp" table="HardwareEmp">
+            <key column="empId"/>
+            <property name="hrs"/>
+        </joined-subclass>
+        <joined-subclass name="bean.AdminEmp" table="AdminEmp">
+            <key column="empId"/>
+            <property name="branchName"/>
+        </joined-subclass>
+
+    </class>
+</hibernate-mapping>
